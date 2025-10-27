@@ -75,14 +75,23 @@ std::string	printSearch(std::string str)
 }
 void	PhoneBook::SEARCH()
 {
+	std::string	line;
 	int	index;
-	int	j;
 
-	scanf("%i", &index);
-	std::string	firstName = contacts[index].getFirstName();
-	std::string	lastName = contacts[index].getLastName();
-	std::string	nickname = contacts[index].getNickname();
 	std::cout << "Input index contact:\n";
-	std::cout << "index" << "|" << "first name" << "|" << "last name" << "|" << "nickname\n";
-	std::cout << index << "|" << printSearch(firstName) << "|" << printSearch(lastName) << "|" << printSearch(nickname);
+	getline(std::cin, line);
+	if (line.size() != 1 || line[0] < '0' || line[0] > '7')
+	{
+		std::cout << "Index out of range or invalid\n";
+		return ;
+	}
+	index = line[0] - '0';
+	if (contacts[index].getFirstName().empty())
+	{
+		std::cout << "No contact at index" << index << "\n";
+		return ;
+	}
+	std::cout << "Input index contact:\n";
+	std::cout << "index|first name|last name|nickname\n";
+	std::cout << index << "|" << printSearch(contacts[index].getFirstName()) << "|" << printSearch(contacts[index].getLastName()) << "|" << printSearch(contacts[index].getNickname()) << "\n";
 }

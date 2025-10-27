@@ -6,6 +6,7 @@ int	main()
 	std::string	action;
 	while (1)
 	{
+		std::cout << "Input action: \n";
 		getline(std::cin, action);
 		if (action  == "ADD")
 			pb.ADD();
