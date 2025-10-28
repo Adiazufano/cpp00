@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <string>
 
 PhoneBook::PhoneBook()
 {
@@ -71,15 +72,31 @@ std::string	printSearch(std::string str)
 {
 	if (str.length() > 10)
 		return str.substr(0,9) + ".";
-	return (str);
+	return std::string(10 - str.length(), ' ') + str;
 }
 void	PhoneBook::SEARCH()
 {
 	std::string	line;
 	int	index;
 
+std::cout << printSearch("index") << "|" << printSearch("first name") << "|" << printSearch("last name") << "|" << printSearch("nickname") << "\n";	index = 0;
+	while (index < 8)
+	{
+		if (contacts[index].getFirstName().empty())
+		{
+			index++;
+			continue;
+		}
+		std::string index_str(1, char ('0' + index));
+		std::cout << printSearch(index_str) << "|"
+		<< printSearch(contacts[index].getFirstName()) << "|"
+		<< printSearch(contacts[index].getLastName()) << "|"
+		<< printSearch(contacts[index].getNickname()) << "\n";
+		index++;
+	}
 	std::cout << "Input index contact:\n";
-	getline(std::cin, line);
+	if (!getline(std::cin, line))
+		return ;
 	if (line.size() != 1 || line[0] < '0' || line[0] > '7')
 	{
 		std::cout << "Index out of range or invalid\n";
@@ -91,7 +108,11 @@ void	PhoneBook::SEARCH()
 		std::cout << "No contact at index" << index << "\n";
 		return ;
 	}
-	std::cout << "Input index contact:\n";
-	std::cout << "index|first name|last name|nickname\n";
-	std::cout << index << "|" << printSearch(contacts[index].getFirstName()) << "|" << printSearch(contacts[index].getLastName()) << "|" << printSearch(contacts[index].getNickname()) << "\n";
+
+	std::cout << "Fisrt name:" << contacts[index].getFirstName() << "\n";
+	std::cout << "Last name:" << contacts[index].getLastName() << "\n";
+	std::cout << "Nickname:" << contacts[index].getNickname() << "\n";
+	std::cout << "Phone number:" << contacts[index].getPhoneNumber() << "\n";
+	std::cout << "Darkest secrest:" << contacts[index].getDarkestSecret() << "\n";
+
 }
