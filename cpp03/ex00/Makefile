@@ -1,5 +1,5 @@
-NAME=FragTrap
-SRCS=ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
+NAME=ClapTrap
+SRCS=ClapTrap.cpp main.cpp
 GFLAGS=-Wall -Werror -Wextra -std=c++98
 G=g++
 OBJS=$(SRCS:.cpp=.o)

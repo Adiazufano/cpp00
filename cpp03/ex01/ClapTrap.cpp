@@ -47,12 +47,12 @@ void	ClapTrap::beRepaired(const unsigned int amount)
 {
 	if (this->hitPoints <= 0)
 	{
-		std::cout << this->name << " can´t repair itself because hasn´t hit points\n";
+		std::cout << this->name << " can’t repair itself because hasn’t hit points\n";
 		return ;
 	}
 	if (this -> energyPoints <= 0)
 	{
-		std::cout << this->name << " can´t repair itself because hasn´t energy points\n";
+		std::cout << this->name << " can’t repair itself because hasn’t energy points\n";
 		return ;
 	}
 	this -> energyPoints--;
