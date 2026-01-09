@@ -1,16 +1,16 @@
 NAME=zombies
 SRCS=main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS=$(SRCS:.cpp=.o)
-G=g++
-GFLAGS=-Wall -Werror -Wextra
+CXX=g++
+CXXFLAGS=-Wall -Werror -Wextra
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(G) $(GFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o:%.cpp
-		$(G) $(GFLAGS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
 	rm -rf $(OBJS)

@@ -1,16 +1,16 @@
 NAME=megaphone
 SRCS=megaphone.cpp
 OBJS=$(SRCS:.cpp=.o)
-G=g++
-GFLAGS=-Wall -Wextra -Werror -std=c++98
+CXX=g++
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	$(G) $(GFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o:%.cpp
-	$(G) $(GFLAGS) -c $< -o  $@
+	$(CXX) $(CXXFLAGS) -c $< -o  $@
 
 clean:
 	rm -rf $(OBJS)

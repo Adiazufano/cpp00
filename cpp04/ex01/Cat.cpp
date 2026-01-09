@@ -7,7 +7,7 @@ Cat::Cat()
 	std::cout << getType() << " created\n";
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
 	brain = new Brain(*other.brain);
 	type = other.type;

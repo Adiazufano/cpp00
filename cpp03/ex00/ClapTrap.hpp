@@ -1,10 +1,15 @@
-#ifndef CLAPTRAP
-#define CLAPTRAP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 #include <string>
 #include <iostream>
 
 class ClapTrap
 {
+	private:
+		std::string	name;
+		int			hitPoints;
+		int			energyPoints;
+		int			damage;
 	public:
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
@@ -21,10 +26,5 @@ class ClapTrap
 		void		setHitPoints(int amount);
 		void		setEnergyPoints(int amount);
 		void		setDamage(int amount);
-	private:
-		std::string	name;
-		int			hitPoints;
-		int			energyPoints;
-		int			damage;
 };
 #endif

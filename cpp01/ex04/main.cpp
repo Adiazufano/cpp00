@@ -7,13 +7,13 @@ int	main(int argc, char *argv[])
 		std::cerr << "ERROR: The program must receive 3 arguments.";
 		return (1);
 	}
-
 	File	ogFile;
 
 	ogFile.setFilename(argv[1]);
 	ogFile.setS1(argv[2]);
 	ogFile.setS2(argv[3]);
 	ogFile.setContent();
-	ogFile.createAndReplace(ogFile, "newFile");
+	if (!ogFile.getS1().empty())
+		ogFile.createAndReplace(ogFile, ogFile.getFilename() + ".replace");
 	return (0);
 }

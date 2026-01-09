@@ -12,6 +12,6 @@ class Brain
 		std::string	getIdea(int index);
 		~Brain();
 	private:
-		std::string	ideas[100] = {};
+		std::string	ideas[100];
 };
 #endif

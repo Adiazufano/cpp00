@@ -6,7 +6,7 @@ WrongCat::WrongCat()
 	std::cout << getType() << " created\n";
 }
 
-WrongCat::WrongCat(const WrongCat& other)
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
 	*this =  other;
 }

@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : hitPoints(10), energyPoints(10), damage(0), name(name)
+ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), damage(0)
 {
 	std::cout << this -> name << ":" << "created\n";
 }
@@ -67,7 +67,7 @@ void	ClapTrap::takeDamage(const unsigned int amount)
 		std::cout << this->name << " is alredy destroyed can´t take more damage\n";
 		return ;
 	}
-	if (amount >= this -> hitPoints)
+	if ((int)amount >= this -> hitPoints)
 		this->hitPoints = 0;
 	else
 		this->hitPoints -= amount;

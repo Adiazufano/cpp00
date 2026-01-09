@@ -4,7 +4,7 @@ int	main()
 {
 	PhoneBook pb;
 	std::string	action;
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "Input action: \n";
 		getline(std::cin, action);
