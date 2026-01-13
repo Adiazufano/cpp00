@@ -36,6 +36,21 @@ PhoneBook&	PhoneBook::operator=(const PhoneBook& other)
 	return (*this);
 }
 
+int	checkPhoneNumber(std::string phoneNumber)
+{
+	int	index;
+	index = 0;
+	if (phoneNumber[0] == '+')
+		index++;
+	while (phoneNumber[index])
+	{
+		if (!isdigit(phoneNumber[index]))
+			return (0);
+		index++;
+	}
+	return (1);
+}
+
 void	PhoneBook::ADD()
 {
 	std::string	firstName;
@@ -59,6 +74,11 @@ void	PhoneBook::ADD()
 		std::cout << "The contact's can't have empty files\n";
 		return;
 	}
+	if (!checkPhoneNumber(phoneNumber))
+	{
+		std::cout << "The phone isn't valid\n";
+		return ;
+	}
 	contacts[currentIndex].setFirstname(firstName);
 	contacts[currentIndex].setLastname(lastName);
 	contacts[currentIndex].setNickname(nickname);
@@ -79,7 +99,13 @@ void	PhoneBook::SEARCH()
 	std::string	line;
 	int	index;
 
-std::cout << printSearch("index") << "|" << printSearch("first name") << "|" << printSearch("last name") << "|" << printSearch("nickname") << "\n";	index = 0;
+	index = 0;
+	if (contacts[0].getFirstName().empty())
+	{
+		std::cout << "empty phonebook\n";
+		return;
+	}
+	std::cout << printSearch("index") << "|" << printSearch("first name") << "|" << printSearch("last name") << "|" << printSearch("nickname") << "\n";
 	while (index < 8)
 	{
 		if (contacts[index].getFirstName().empty())
@@ -105,7 +131,7 @@ std::cout << printSearch("index") << "|" << printSearch("first name") << "|" << 
 	index = line[0] - '0';
 	if (contacts[index].getFirstName().empty())
 	{
-		std::cout << "No contact at index" << index << "\n";
+		std::cout << "No contact at index " << index << "\n";
 		return ;
 	}
 
@@ -114,5 +140,4 @@ std::cout << printSearch("index") << "|" << printSearch("first name") << "|" << 
 	std::cout << "Nickname:" << contacts[index].getNickname() << "\n";
 	std::cout << "Phone number:" << contacts[index].getPhoneNumber() << "\n";
 	std::cout << "Darkest secrest:" << contacts[index].getDarkestSecret() << "\n";
-
 }
