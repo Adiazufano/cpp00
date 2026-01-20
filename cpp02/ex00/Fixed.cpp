@@ -7,17 +7,17 @@ Fixed::Fixed() : value(0)
 
 Fixed::Fixed(const Fixed& other)
 {
-	this -> value = other.value;
 	std::cout << "Copy constructor called\n";
+	*this = other;
 }
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
+	std::cout << "Copy asigment operator called\n";
 	if (this != &other)
 	{
 		this -> value = other.value;
 	}
-	std::cout << "Copy asigment operator called\n";
 	return (*this);
 }
 
@@ -35,5 +35,4 @@ int		Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int raw)
 {
 	this -> value = raw;
-	std::cout << "setRawBits member function called\n";
 }

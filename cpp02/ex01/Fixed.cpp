@@ -8,27 +8,27 @@ Fixed::Fixed() : value(0)
 
 Fixed::Fixed(const int num)
 {
-	this->value = num * (1 << fractionalBits);
+	this->value = num << fractionalBits;
 	std::cout << "Int constructor called\n";
 }
 
 Fixed::Fixed(const float num)
 {
-	this->value = static_cast<int>(roundf(num * (1 << fractionalBits)));
 	std::cout << "Float constructor called\n";
+	this->value = roundf(num  * (1 << fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	this->value = other.value;
 	std::cout << "Copy constructor called\n";
+	*this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
+	std::cout << "Copy assignment operator called\n";
 	if (this != &other)
-		this->value = other.value;
-	std::cout << "Copy as assigment operator called\n";
+		this->value = other.getRawBits();
 	return (*this);
 }
 
@@ -39,7 +39,6 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called\n";
 	return (this -> value);
 }
 

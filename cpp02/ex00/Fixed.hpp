@@ -4,6 +4,9 @@
 #include	<string>
 class Fixed
 {
+	private:
+		int				value;
+		static const	int fractionalBits = 8;
 	public:
 		Fixed();
 		Fixed(const Fixed& other);
@@ -11,9 +14,6 @@ class Fixed
 		~Fixed();
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-	private:
-		int				value;
-		static const	int fractionalBits = 8;
 
 };
 
