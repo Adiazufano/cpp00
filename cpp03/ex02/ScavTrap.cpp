@@ -1,16 +1,23 @@
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	this -> hitPoints = 100;
+	this -> energyPoints = 50;
+	this -> damage = 20;
+	std::cout << "ScavTrap default constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	setHitPoints(100);
-	setEnergyPoints(50);
-	setDamage(20);
-	std::cout << "ScavTrap : " << name << " created\n";
+	this -> hitPoints = 100;
+	this -> energyPoints = 50;
+	this -> damage = 20;
+	std::cout << "ScavTrap : " << this->name << " created from ClapTrap!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	*this = other;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
@@ -24,26 +31,26 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap :"<<  getName() << " destroyed\n";
+	std::cout << "ScavTrap :"<<  this -> name << " destroyed" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (getHitPoints() <= 0)
+	if (this -> hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << " can’t attack because hasn’t hit points\n";
+		std::cout << "ScavTrap " << this -> name << " can’t attack because hasn’t hit points" << std::endl;
 		return ;
 	}
-	if (getEnergyPoints() <= 0)
+	if (this -> energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << " can’t attack because hasn’t energy\n";
+		std::cout << "ScavTrap " << this -> name << " can’t attack because hasn’t energy" << std::endl;
 		return ;
 	}
-	setEnergyPoints(getEnergyPoints() - 1);
-	std::cout << "ScavTrap " << getName() << " attacks " << target << " , causing " << getDamage() << " points of damage!\n";
+	this -> energyPoints--;
+	std::cout << "ScavTrap " << this -> name << " attacks " << target << " , causing " << this -> damage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode.";
+	std::cout << "ScavTrap " << this -> name << " is now in Gate keeper mode." << std::endl;
 }
