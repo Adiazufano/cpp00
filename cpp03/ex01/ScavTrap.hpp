@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 10:27:07 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2026/01/26 10:27:08 by aldiaz-u         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAVTRAP
 #define SCAVTRAP
 #include <string>
@@ -6,7 +18,8 @@
 
 class ScavTrap : public ClapTrap
 {
-	public: 
+	public:
+		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap& other);
 		ScavTrap& operator=(const ScavTrap& other);

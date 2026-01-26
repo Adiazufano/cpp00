@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 10:26:54 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2026/01/26 10:38:16 by aldiaz-u         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP
 #define CLAPTRAP
 #include <string>
@@ -5,26 +17,19 @@
 
 class ClapTrap
 {
-	public:
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& other);
-		ClapTrap& operator=(const ClapTrap& other);
-		~ClapTrap();
-		virtual void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		std::string	getName() const;
-		int			getHitPoints() const;
-		int			getEnergyPoints() const;
-		int			getDamage() const;
-		void		setName(std::string name);
-		void		setHitPoints(int amount);
-		void		setEnergyPoints(int amount);
-		void		setDamage(int amount);
-	private:
+	protected:
 		std::string	name;
 		int			hitPoints;
 		int			energyPoints;
 		int			damage;
+	public:
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		virtual ~ClapTrap();
+		virtual void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 };
 #endif
