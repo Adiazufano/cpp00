@@ -23,29 +23,26 @@ int main()
 	}
 
 	Dog originalDog;
-	originalDog.getBrain()->setIdea(0, "Quiero hueso");
+	originalDog.getBrain()->setIdea(0, "I want bone");
 	Dog copiedDog = originalDog;
 
-	copiedDog.getBrain()->setIdea(0, "Quiero dormir");
+	copiedDog.getBrain()->setIdea(0, "I want sleep");
 
 	std::cout << "\nTEST deep copy Dog\n";
 	std::cout << "Original Dog idea[0]: " 
-			  << originalDog.getBrain()->getIdea(0) << std::endl;
+			<< originalDog.getBrain()->getIdea(0) << std::endl;
 	std::cout << "Copied Dog idea[0]: " 
-			  << copiedDog.getBrain()->getIdea(0) << std::endl;
-
+			<< copiedDog.getBrain()->getIdea(0) << std::endl;
 
 	for (int i = 0; i < SIZE; i++)
 		delete animals[i];
-
 
 	std::cout << "\nWRONGANIMALS TEST\n";
 	const WrongAnimal* wa = new WrongAnimal();
 	const WrongAnimal* wc = new WrongCat();
 
 	std::cout << wc->getType() << " says: ";
-	wc->makeSound();
-
+	wc->makeSound(); 
 	wa->makeSound();
 
 	delete wa;

@@ -2,13 +2,13 @@
 
 WrongCat::WrongCat()
 {
-	this -> type = "WrongCat";
-	std::cout << getType() << " created" << std::endl;
+	type = "WrongCat";
+	std::cout << "WrongCat created" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
-	std::cout << "WrongCat copy construcor executed" << std::endl;
+	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
 WrongCat&	WrongCat::operator=(const WrongCat& other)
@@ -20,7 +20,7 @@ WrongCat&	WrongCat::operator=(const WrongCat& other)
 
 WrongCat::~WrongCat()
 {
-	std::cout << getType() << " deleted" << std::endl;
+	std::cout << "WrongCat deleted" << std::endl;
 }
 
 void	WrongCat::makeSound() const

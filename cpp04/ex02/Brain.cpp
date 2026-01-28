@@ -7,9 +7,10 @@ Brain::Brain()
 		ideas[i] = std::string("");
 }
 
-Brain::Brain(const Brain& other) : 
-	ideas(other.ideas)
+Brain::Brain(const Brain& other)
 {
+	std::cout << "Brain copy constructor called" << std::endl;
+	*this = other;
 }
 
 Brain&	Brain::operator=(const Brain& other)

@@ -2,13 +2,14 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain created\n";
+	std::cout << "Brain created" << std::endl;
 	for (int i = 0; i < 100; i++)
-		ideas[i] = std::string(""); // asegura que cada string está inicializado
+		ideas[i] = std::string(""); 
 }
 
 Brain::Brain(const Brain& other)
 {
+	std::cout << "Brain copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -24,7 +25,7 @@ Brain&	Brain::operator=(const Brain& other)
 
 Brain::~Brain()
 {
-		std::cout << "Brain deleted\n";
+	std::cout << "Brain deleted" << std::endl;
 }
 
 void	Brain::setIdea(int index, const std::string& idea)

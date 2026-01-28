@@ -2,13 +2,13 @@
 
 Cat::Cat()
 {
-	this -> type = "Cat";
-	std::cout << getType() << " created\n";
+	type = "Cat";
+	std::cout << "Cat created" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-	*this =  other;
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& other)
@@ -23,10 +23,10 @@ Cat&	Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-	std::cout << getType() << " deleted\n";
+	std::cout << "Cat deleted" << std::endl;
 }
 
 void	Cat::makeSound() const
 {
-	std::cout << "Miauuu!!\n";
+	std::cout << "Miauuu!!" << std::endl;
 }

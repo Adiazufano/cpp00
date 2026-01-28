@@ -2,16 +2,15 @@
 
 Cat::Cat()
 {
-	this -> type = "Cat";
-	this -> brain = new Brain();
-	std::cout << getType() << " created" << std::endl;
+	type = "Cat";
+	brain = new Brain();
+	std::cout << "Cat created" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-	std::cout << "Cat copy construcor executed" << std::endl;
 	brain = new Brain(*other.brain);
-	type = other.type;
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& other)
@@ -28,7 +27,7 @@ Cat&	Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-	std::cout << getType() << " deleted" << std::endl;
+	std::cout << "Cat deleted" << std::endl;
 	delete brain;
 }
 

@@ -1,7 +1,7 @@
 NAME=Animal
 SRCS=Dog.cpp main.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 CXXFLAGS=-Wall -Werror -Wextra -std=c++98
-CXX=g++
+CXX=c++
 OBJS=$(SRCS:.cpp=.o)
 
 all:$(NAME)

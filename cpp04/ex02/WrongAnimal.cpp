@@ -2,14 +2,13 @@
 
 WrongAnimal::WrongAnimal()
 {
-	this -> type = "";
+	type = "WrongAnimal";
 	std::cout << "WrongAnimal created" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& other) :
-	type(other.type)
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type)
 {
-	std::cout << "WrongAnimal copy construcor executed" << std::endl;
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& other)
